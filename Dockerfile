@@ -2,13 +2,14 @@ FROM ubuntu:22.04
 s
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN mkdir -p docker/minecraft
+RUN mkdir -p docker/bukkit
 
 WORKDIR docker/bukkit
 
 RUN apt-get update && apt-get install -y \
     openjdk-21-jdk \
     nano \
+    mysql \
     wget \
     && rm -rf /var/lib/apt/lists/*
 
