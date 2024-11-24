@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN mkdir -p docker/minecraft
 
-WORKDIR docker/minecraft
+WORKDIR docker/bukkit
 
 RUN apt-get update && apt-get install -y \
     openjdk-21-jdk \
@@ -12,11 +12,11 @@ RUN apt-get update && apt-get install -y \
     wget \
     && rm -rf /var/lib/apt/lists/*
 
-RUN wget -O server.jar https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar
+RUN wget -O server.jar https://download.getbukkit.org/craftbukkit/craftbukkit-1.21.jar
 
 RUN echo "eula=true" > eula.txt
 
-VOLUME [ "docker/minecraft" ]
+VOLUME [ "docker/bukkit" ]
 
 EXPOSE 25565
 
