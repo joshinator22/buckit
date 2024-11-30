@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN mkdir -p docker/minecraft
 
-WORKDIR docker/minecraft
+WORKDIR minecraft
 
 RUN apt-get update && apt-get install -y \
     openjdk-21-jdk \
@@ -15,8 +15,6 @@ RUN apt-get update && apt-get install -y \
 RUN wget -O server.jar https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar
 
 RUN echo "eula=true" > eula.txt
-
-VOLUME [ "docker/minecraft" ]
 
 EXPOSE 25565
 
