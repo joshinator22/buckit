@@ -1,23 +1,22 @@
 FROM ubuntu:22.04
-s
+
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN mkdir -p docker/bukkit
+RUN mkdir -p docker/minecraft
 
-WORKDIR docker/bukkit
+WORKDIR docker/minecraft
 
 RUN apt-get update && apt-get install -y \
     openjdk-21-jdk \
     nano \
-    mysql \
     wget \
     && rm -rf /var/lib/apt/lists/*
 
-RUN wget -O server.jar https://download.getbukkit.org/craftbukkit/craftbukkit-1.21.jar
+RUN wget -O server.jar https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar
 
 RUN echo "eula=true" > eula.txt
 
-VOLUME [ "docker/bukkit" ]
+VOLUME [ "docker/minecraft" ]
 
 EXPOSE 25565
 
