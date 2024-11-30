@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN mkdir -p docker/minecraft
 
-WORKDIR minecraft
+WORKDIR /minecraft
 
 RUN apt-get update && apt-get install -y \
     openjdk-21-jdk \
